@@ -1,0 +1,13 @@
+@import 'src/scss/colors';
+
+:host {
+  box-shadow: 0 3px 6px $black-alpha-1;
+  padding: 24px 0 23px 0;
+  display: block;
+  text-align: center;
+}
+
+p {
+  color: $dim-gray;
+  font-size: 14px;
+}
