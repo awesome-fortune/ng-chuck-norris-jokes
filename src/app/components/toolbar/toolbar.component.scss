@@ -1,0 +1,14 @@
+@import 'src/scss/colors';
+
+:host {
+  background-color: $charcoal;
+  display: block;
+  padding: 40px 70px;
+  box-shadow: 0 3px 6px $black-alpha-1;
+}
+
+h1 {
+  margin: 0;
+  color: $gainsboro;
+  font: Bold 36px/44px Montserrat;
+}
