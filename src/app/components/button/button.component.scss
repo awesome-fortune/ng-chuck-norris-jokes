@@ -1,0 +1,21 @@
+@import 'src/scss/colors';
+
+:host {
+  border-radius: 36px;
+  background-color: $white;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  color: $dim-gray;
+
+  &:hover {
+    background-color: $grey !important;
+    color: white;
+  }
+}
+
+p {
+  margin: 1em 2em;
+  font: SemiBold 26px/32px Montserrat;
+  text-transform: uppercase;
+}
