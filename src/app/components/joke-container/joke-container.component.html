@@ -1,1 +1,14 @@
-<p>joke-container works!</p>
+<div class="header-container">
+  <h6>Chuck Norris {{ (selectedCategory$ | async) ? selectedCategory$ : 'Random' }} jokes</h6>
+</div>
+<div class="joke-content-container">
+  <p>Joke</p>
+</div>
+
+<div class="button-container">
+  <app-button>Next Joke</app-button>
+</div>
+
+<svg class="overlay">
+  <rect class="overlay-content" rx="5" ry="5" x="0" y="0" width="868" height="757"></rect>
+</svg>

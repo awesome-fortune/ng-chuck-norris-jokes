@@ -1,4 +1,7 @@
+@import 'src/scss/colors';
+
 :host {
+  background-color: $white-smoke;
   display: grid;
   height: 100%;
   grid-template-rows: auto 1fr auto;
@@ -6,16 +9,62 @@
     'header'
     'main'
     'footer';
-}
-
-app-toolbar {
-  grid-area: header;
+  align-items: center;
 }
 
 main {
+  z-index: 10;
   grid-area: main;
+  display: flex;
+  justify-content: center;
 }
 
-app-footer {
-  grid-area: footer;
+app {
+  &-toolbar {
+    grid-area: header;
+    z-index: 10;
+  }
+
+  &-footer {
+    grid-area: footer;
+    z-index: 10;
+  }
+
+  &-joke-container {
+    margin-left: 120px;
+  }
+}
+
+#poly_right {
+  opacity: 0.353;
+  fill: url(#poly_right);
+  z-index: -1;
+}
+
+.poly_right {
+  overflow: hidden;
+  position: absolute;
+  width: 1270px;
+  height: 1119px;
+  transform: matrix(1, 0, 0, 1, 1353.7972, -311.2708) rotate(-90deg);
+  transform-origin: center;
+  left: 0;
+  top: 0;
+}
+
+#poly_left {
+  opacity: 0.353;
+  fill: url(#poly_left);
+  z-index: -1;
+}
+
+.poly_left {
+  overflow: hidden;
+  position: absolute;
+  width: 1270px;
+  height: 1119px;
+  transform: matrix(1, 0, 0, 1, -635.2029, 342.5) rotate(90deg);
+  transform-origin: center;
+  left: 0;
+  top: 0;
 }

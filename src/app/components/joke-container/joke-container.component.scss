@@ -1,0 +1,72 @@
+@import 'src/scss/colors';
+
+:host {
+  border-radius: 5px;
+  box-shadow: 0 2px 20px $black-alpha-1;
+  max-width: 868px;
+  background-image: url('../../../assets/images/dribbble_chuck.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header-container {
+  padding-top: 55px;
+  z-index: 10;
+}
+
+.button-container {
+  padding-bottom: 40px;
+  z-index: 10;
+}
+
+.joke-content-container {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+h6 {
+  font-size: 24px;
+  line-height: 29px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: $gainsboro;
+}
+
+p {
+  font-size: 24px;
+  line-height: 29px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: $gainsboro;
+}
+
+.overlay {
+  position: absolute;
+  overflow: visible;
+  width: 868px;
+  height: 757px;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  &-content {
+    opacity: 0.4;
+    fill: $black;
+    stroke: $grey;
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+    z-index: 1;
+  }
+}

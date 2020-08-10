@@ -1,0 +1,34 @@
+@import 'src/scss/colors';
+
+:host {
+  display: block;
+}
+
+fa-icon {
+  position: absolute;
+  color: $dim-gray;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+
+input,
+input::placeholder {
+  color: $dim-gray;
+  font-weight: 500;
+  line-height: 32px;
+  font-size: 26px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0;
+}
+
+input {
+  padding: 15px 0 15px 60px;
+  border: 1px solid $dim-gray;
+  border-radius: 36px;
+  background: $white;
+  max-width: 255px;
+
+  &:focus {
+    outline: none;
+  }
+}

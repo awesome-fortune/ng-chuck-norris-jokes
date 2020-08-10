@@ -1,0 +1,28 @@
+@import 'src/scss/colors';
+
+:host {
+  border-radius: 5px;
+  box-shadow: 0 2px 20px $black-alpha-1;
+  background-color: $white;
+  max-height: 757px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+
+app-nav-item {
+  margin: 30px 30px 0 30px;
+
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+}
+
+app-search-input {
+  margin-bottom: 20px;
+}
+
+.nav-item-container {
+  overflow: scroll;
+}
