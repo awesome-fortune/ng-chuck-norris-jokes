@@ -20,4 +20,16 @@ export class JokesApiEffects {
       )
     )
   );
+
+  loadJoke$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromAppActions.loadJoke),
+      mergeMap(({ selectedCategory }) =>
+        this.jokesApi.getRandomJoke(selectedCategory).pipe(
+          map((joke) => fromAppActions.loadJokeSuccess({ joke })),
+          catchError((err) => of(fromAppActions.loadJokeFailure({ errorMessage: err.message })))
+        )
+      )
+    )
+  );
 }

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
+import * as fromCategory from '../../reducers/category.reducer';
+import * as fromJoke from '../../reducers/joke.reducer';
+import * as fromAppActions from '../../actions/app.actions';
 import { Observable } from 'rxjs';
-import * as fromCategories from '../../reducers/categories/categories.reducer';
+import { Joke } from '../../models/joke.model';
 
 @Component({
   selector: 'app-joke-container',
@@ -10,11 +13,23 @@ import * as fromCategories from '../../reducers/categories/categories.reducer';
   styleUrls: ['./joke-container.component.scss'],
 })
 export class JokeContainerComponent implements OnInit {
-  selectedCategory$: Observable<string>;
+  selectedCategory: string;
+  joke$: Observable<Joke>;
 
   constructor(private store: Store<fromRoot.State>) {
-    this.selectedCategory$ = store.pipe(select(fromCategories.selectSelectedCategory));
+    store.pipe(select(fromCategory.selectSelectedCategory)).subscribe((value) => (this.selectedCategory = value));
+    this.joke$ = store.pipe(select(fromJoke.selectJokeValue));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dispatchLoadJoke();
+  }
+
+  dispatchLoadJoke(): void {
+    this.store.dispatch(
+      fromAppActions.loadJoke({
+        selectedCategory: this.selectedCategory ? this.selectedCategory.toLowerCase() : this.selectedCategory,
+      })
+    );
+  }
 }

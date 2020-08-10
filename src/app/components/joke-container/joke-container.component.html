@@ -1,12 +1,15 @@
 <div class="header-container">
-  <h6>Chuck Norris {{ (selectedCategory$ | async) ? selectedCategory$ : 'Random' }} jokes</h6>
+  <h6>
+    <ng-container *ngIf="selectedCategory">Chuck Norris {{ selectedCategory }} jokes</ng-container>
+    <ng-container *ngIf="!selectedCategory">Random Chuck Norris jokes</ng-container>
+  </h6>
 </div>
 <div class="joke-content-container">
-  <p>Joke</p>
+  <p>{{ (joke$ | async)?.value }}</p>
 </div>
 
 <div class="button-container">
-  <app-button>Next Joke</app-button>
+  <app-button (click)="dispatchLoadJoke()">Next Joke</app-button>
 </div>
 
 <svg class="overlay">

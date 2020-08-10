@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import * as homePageActions from './actions/app.actions';
+import * as fromAppActions from './actions/app.actions';
 import * as fromRoot from './reducers';
-import * as fromCategories from './reducers/categories/categories.reducer';
-import { map } from 'rxjs/operators';
+import * as fromCategory from './reducers/category.reducer';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +15,10 @@ export class AppComponent implements OnInit {
   categories$: Observable<string[]>;
 
   constructor(private store: Store<fromRoot.State>) {
-    this.categories$ = store.pipe(select(fromCategories.selectCategories));
+    this.categories$ = store.pipe(select(fromCategory.selectCategoryItems));
   }
 
   ngOnInit(): void {
-    this.store.dispatch(homePageActions.enterHomePage());
+    this.store.dispatch(fromAppActions.enterHomePage());
   }
 }
