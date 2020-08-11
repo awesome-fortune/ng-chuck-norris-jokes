@@ -17,7 +17,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(fromAppActions.loadJoke, (state) => ({ ...state, loading: true })),
+  on(fromAppActions.loadJoke, fromAppActions.setSelectedCategory, (state) => ({ ...state, loading: true })),
   on(fromAppActions.loadJokeSuccess, (state, { joke }) => ({ ...state, joke, loading: false }))
 );
 
