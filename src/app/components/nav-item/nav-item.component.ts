@@ -14,8 +14,9 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 export class NavItemComponent implements OnInit, OnDestroy {
   @Input() navItemName;
   selectedCategory$: Observable<string>;
-  click$: Subject<Event> = new Subject<Event>();
-  destroy$: Subject<void> = new Subject<void>();
+
+  private click$: Subject<Event> = new Subject<Event>();
+  private destroy$: Subject<void> = new Subject<void>();
 
   @HostListener('click', ['$event'])
   onClick(e: Event): void {

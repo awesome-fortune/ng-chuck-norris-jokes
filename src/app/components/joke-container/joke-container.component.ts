@@ -16,8 +16,9 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 export class JokeContainerComponent implements OnInit, OnDestroy {
   selectedCategory: string;
   joke$: Observable<Joke>;
-  destroy$: Subject<void> = new Subject<void>();
-  buttonClick$: Subject<void> = new Subject<void>();
+
+  private destroy$: Subject<void> = new Subject<void>();
+  private buttonClick$: Subject<void> = new Subject<void>();
 
   constructor(private store: Store<fromRoot.State>) {
     store
@@ -29,6 +30,7 @@ export class JokeContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dispatchLoadJoke();
+
     this.buttonClick$
       .asObservable()
       .pipe(debounceTime(500), takeUntil(this.destroy$))

@@ -1,5 +1,13 @@
-<app-search-input></app-search-input>
+<app-search-input (categoryFilterTerm)="onFilterCategories($event)"></app-search-input>
 
 <div class="nav-item-container">
   <app-nav-item *ngFor="let item of navItems" [navItemName]="item"></app-nav-item>
+</div>
+
+<div class="invalid-category-message" *ngIf="searchTerm.length > 0 && navItems.length === 0">
+  <fa-icon [icon]="invalidCategoryIcon" size="5x"></fa-icon>
+  <p>
+    <strong>{{ searchTerm }}</strong>
+    is an invalid category.
+  </p>
 </div>
