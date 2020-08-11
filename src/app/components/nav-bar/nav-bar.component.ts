@@ -1,5 +1,5 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { faExclamationCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav-bar',
