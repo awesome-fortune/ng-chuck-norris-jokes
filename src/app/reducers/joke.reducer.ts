@@ -7,16 +7,20 @@ export const jokeFeatureKey = 'joke';
 
 export interface State {
   joke: Joke;
+  loading: boolean;
 }
 
 export const initialState: State = {
   joke: null,
+  loading: false,
 };
 
 export const reducer = createReducer(
   initialState,
-  on(fromAppActions.loadJokeSuccess, (state, { joke }) => ({ ...state, joke }))
+  on(fromAppActions.loadJoke, (state) => ({ ...state, loading: true })),
+  on(fromAppActions.loadJokeSuccess, (state, { joke }) => ({ ...state, joke, loading: false }))
 );
 
 const selectJoke = createFeatureSelector<fromRoot.State, State>(jokeFeatureKey);
 export const selectJokeValue = createSelector(selectJoke, (state: State) => state.joke);
+export const selectJokeLoading = createSelector(selectJoke, (state: State) => state.loading);

@@ -1,3 +1,5 @@
+@import 'scss/colors';
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +16,26 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
+}
+
+.loading-gradient {
+  animation-duration: 1.8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, $white 8%, $gainsboro 38%, $white-smoke 54%);
+  background-size: 1000px 640px;
+
+  position: relative;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
 }

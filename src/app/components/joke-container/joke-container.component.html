@@ -12,6 +12,6 @@
   <app-button (click)="loadNextJoke()">Next Joke</app-button>
 </div>
 
-<svg class="overlay">
+<svg [class.loading-gradient]="jokeLoading$ | async" class="overlay">
   <rect class="overlay-content" rx="5" ry="5" x="0" y="0" width="868" height="757"></rect>
 </svg>
