@@ -1,1 +1,3 @@
-<a>{{ navItemName }}</a>
+<a [ngStyle]="{ color: navItemName == (selectedCategory$ | async) ? '#707070' : '#e6e6e6' }">
+  {{ navItemName | titlecase }}
+</a>

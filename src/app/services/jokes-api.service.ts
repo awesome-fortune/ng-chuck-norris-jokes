@@ -16,10 +16,10 @@ export class JokesApiService {
   }
 
   getRandomJoke(category = null): Observable<Joke> {
-    const params = new HttpParams();
+    let params = new HttpParams();
 
     if (category) {
-      params.append('category', category);
+      params = params.set('category', category);
     }
 
     return this.http.get<Joke>(`${this.API_BASE}/random`, { params });

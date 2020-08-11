@@ -23,7 +23,7 @@ export class JokesApiEffects {
 
   loadJoke$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fromAppActions.loadJoke),
+      ofType(fromAppActions.loadJoke, fromAppActions.setSelectedCategory),
       mergeMap(({ selectedCategory }) =>
         this.jokesApi.getRandomJoke(selectedCategory).pipe(
           map((joke) => fromAppActions.loadJokeSuccess({ joke })),

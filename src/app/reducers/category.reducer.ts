@@ -16,7 +16,8 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(fromAppActions.loadCategoriesSuccess, (state, { categories }) => ({ ...state, items: categories }))
+  on(fromAppActions.loadCategoriesSuccess, (state, { categories }) => ({ ...state, items: categories })),
+  on(fromAppActions.setSelectedCategory, (state, { selectedCategory }) => ({ ...state, selectedCategory }))
 );
 
 const selectCategories = createFeatureSelector<fromRoot.State, State>(categoryFeatureKey);

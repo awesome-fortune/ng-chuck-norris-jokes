@@ -9,3 +9,8 @@ export const loadCategoriesFailure = createAction('[API] Load categories failure
 export const loadJoke = createAction('[Joke container] Load joke', props<{ selectedCategory: string }>());
 export const loadJokeSuccess = createAction('[API] Load joke success', props<{ joke: Joke }>());
 export const loadJokeFailure = createAction('[API] Load joke failure', props<{ errorMessage: string }>());
+
+export const setSelectedCategory = createAction(
+  '[NavBar] Set selected category',
+  props<{ selectedCategory: string }>()
+);
